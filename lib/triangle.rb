@@ -7,23 +7,23 @@ class Triangle
   
   
   
-  def initialize(side1, side2, side3)
+  def initialize(x, y, z)
     
-    @side1 = side1
-    @side2 = side2
-    @side3 = side3
-    if (@side1 + @side2) <= @side3 || (@side2 + @side3) <= @side1 || (@side1 + @side3) <= @side2
+    @x = x
+    @y = y
+    @z = z
+    if (@x + @y) <= @z || (@y + @z) <= @x || (@x + @z) <= @y
       raise TriangleError        
     end
 
   end
 
   def kind
-    if @side1 == @side2 && @side1 == @side3 && @side2 == @side3
+    if @x == @y && @y == @z
       :equilateral
-    elsif @side1 == @side2 || @side1 == @side3 || @side2 == @side3
+    elsif @x == @y || @x == @z || @y == @z
       :isosceles
-    elsif @side1 != @side2 && @side1 != @side3 && @side2 != @side3
+    else
       :scalene 
     end
 
